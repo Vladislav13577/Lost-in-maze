@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,11 +13,13 @@ public class PlayerController : MonoBehaviour
     public bool stopGame;
     public AudioClip gameOverSound;
     public AudioSource audioSource;
+    private GameManager gameManager;
 
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -40,7 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Anomaly"))
         {
-            GameOver();
+            gameManager.GameOver();
+            stopGame = true;
             audioSource.PlayOneShot(gameOverSound);
         }
     }
