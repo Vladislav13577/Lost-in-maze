@@ -1,19 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameOverScreen;
-
-    void Start()
+    public void RestartGame()
     {
-        gameOverScreen.SetActive(false);
-    }
-
-
-    public void GameOver()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        gameOverScreen.SetActive(true);
+        SceneManager.LoadScene(1);
     }
 }
