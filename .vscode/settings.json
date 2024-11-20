@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Lost in maze.sln"
+    "dotnet.defaultSolution": "Lost in maze.sln",
+    "dotnet.preferCSharpExtension": true
 }
